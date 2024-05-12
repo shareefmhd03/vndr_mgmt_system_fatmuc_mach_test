@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'vendor',
     'store',
+    # 'rest_framework_swagger',
+    'rest_framework',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -72,6 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'vndr_mgmt_sys.wsgi.application'
 
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
