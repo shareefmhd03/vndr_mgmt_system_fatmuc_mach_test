@@ -29,3 +29,18 @@ The Vendor Management System is a web application built using Django and Django 
 
    ```bash
    https://github.com/shareefmhd03/vndr_mgmt_system_fatmug_mach_test.git
+
+## Installation
+
+```bash
+    # 2. Install dependencies:
+    pip install -r requirements.txt
+
+    # 3. Apply migrations:
+    python manage.py migrate
+
+    # 4. Create a superuser (for accessing the Django admin):
+    python manage.py createsuperuser
+
+    # 5. Run the development server:
+    python manage.py runserver
