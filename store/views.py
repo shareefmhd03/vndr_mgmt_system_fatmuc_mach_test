@@ -3,19 +3,27 @@ from django.http import Http404
 
 from rest_framework import generics, status
 from rest_framework.response import Response
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 from .models import PurchaseOrder
 from .serializers import PurchaseOrderSerializer
 
 class PurchaseOrderListCreate(generics.ListCreateAPIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset  = PurchaseOrder.objects.all()
     serializer_class = PurchaseOrderSerializer
 
 class PurchaseOrderRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset  = PurchaseOrder.objects.all()
     serializer_class = PurchaseOrderSerializer
 
 class AcknowledgePurchaseOrder(generics.UpdateAPIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = PurchaseOrder.objects.all()
     serializer_class = PurchaseOrderSerializer
 

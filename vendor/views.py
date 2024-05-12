@@ -2,6 +2,9 @@
 from django.http import Http404
 from rest_framework import generics,status
 from rest_framework.response import Response
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 from .models import Vendor
 from .serializers import VendorSerializer
 
@@ -10,11 +13,15 @@ class VendorListCreate(generics.ListCreateAPIView):
     serializer_class = VendorSerializer
 
 class VendorRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Vendor.objects.all()
     serializer_class = VendorSerializer
 
 
 class VendorPerformance(generics.RetrieveAPIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Vendor.objects.all()
     serializer_class = VendorSerializer
 
