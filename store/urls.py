@@ -1,3 +1,8 @@
-from django.urls import path,include
+from django.urls import path
+from .views import *
 
-urlpatterns = []
+urlpatterns = [
+    path('',PurchaseOrderListCreate.as_view(),name = 'create-order-list'),
+    path('<int:pk>',PurchaseOrderRetrieveUpdateDestroy.as_view(), name= 'ord-ret-upd-del')
+
+]

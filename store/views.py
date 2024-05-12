@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from .models import PurchaseOrder
+from .serializers import PurchaseOrderSerializer
+
+class PurchaseOrderListCreate(generics.ListCreateAPIView):
+    queryset  = PurchaseOrder.objects.all()
+    serializer_class = PurchaseOrderSerializer
+
+class PurchaseOrderRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset  = PurchaseOrder.objects.all()
+    serializer_class = PurchaseOrderSerializer

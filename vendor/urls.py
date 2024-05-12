@@ -1,3 +1,8 @@
-from django.urls import path,include
+from django.urls import path
+from .views import *
 
-urlpatterns = []
+urlpatterns = [
+    path('',VendorListCreate.as_view(),name = 'create-ven-list'),
+    path('<int:pk>',VendorRetrieveUpdateDestroy.as_view(), name= 'ven-ret-upd-del')
+
+]
