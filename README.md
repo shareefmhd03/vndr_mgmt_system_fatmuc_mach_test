@@ -30,8 +30,6 @@ The Vendor Management System is a web application built using Django and Django 
    ```bash
    https://github.com/shareefmhd03/vndr_mgmt_system_fatmug_mach_test.git
 
-## Installation
-
 ```bash
     # 2. Install dependencies:
     pip install -r requirements.txt
@@ -80,7 +78,7 @@ The Vendor Management System is a web application built using Django and Django 
 Token-based authentication is used for vendors.
 Vendors need to generate tokens using the Django management command (`drf_create_token`) and include them in the HTTP headers for authentication.
 ```bash
-        python manage.py drf_create_token <vendor_username>\
+        python manage.py drf_create_token <vendor_username>
 ```
     Authorization: Token <token_value>
 
