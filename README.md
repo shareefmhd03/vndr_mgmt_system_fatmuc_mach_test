@@ -44,3 +44,43 @@ The Vendor Management System is a web application built using Django and Django 
 
     # 5. Run the development server:
     python manage.py runserver
+
+    ## Usage
+
+    ```bash
+        # View Swagger documentation for detailed API usage instructions.
+        # Access Swagger UI at http://localhost:8000/docs/ when the server is running.
+    ```
+```
+
+## API Endpoints
+
+### Vendor Profile Management
+
+- **POST /api/vendors/**: Create a new vendor profile.
+- **GET /api/vendors/**: List all vendors.
+- **GET /api/vendors/{vendor_id}/**: Retrieve details of a specific vendor.
+- **PUT /api/vendors/{vendor_id}/**: Update a vendor's details.
+- **DELETE /api/vendors/{vendor_id}/**: Delete a vendor profile.
+
+### Purchase Order Tracking
+
+- **POST /api/purchase_orders/**: Create a new purchase order.
+- **GET /api/purchase_orders/**: List all purchase orders with an option to filter by vendor.
+- **GET /api/purchase_orders/{po_id}/**: Retrieve details of a specific purchase order.
+- **PUT /api/purchase_orders/{po_id}/**: Update a purchase order.
+- **DELETE /api/purchase_orders/{po_id}/**: Delete a purchase order.
+
+### Vendor Performance Evaluation
+
+- **GET /api/vendors/{vendor_id}/performance/**: Retrieve performance metrics for a specific vendor.
+
+### Authentication
+
+Token-based authentication is used for vendors.
+Vendors need to generate tokens using the Django management command (`drf_create_token`) and include them in the HTTP headers for authentication.
+```bash
+        python manage.py drf_create_token <vendor_username>\
+```
+    Authorization: Token <token_value>
+
